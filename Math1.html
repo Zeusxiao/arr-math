@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Math</title>
+</head>
+<body>
+
+	<script>
+		//math本身就是一个对象，直接用就可以
+		
+		//abs  绝对值
+		console.log(Math.abs(10));    // 10
+		console.log(Math.abs(-20));   // 20 
+			
+        //最大、最小值
+        console.log(Math.max(1,2,3,4,5,6));  // 6
+        console.log(Math.min(1,2,3,4,5,6));  // 1
+
+
+        //round  近似值  四舍五入
+        console.log(Math.round(10.5));    // 11
+        console.log(Math.round(10.45));   // 10
+        console.log(Math.round(0.45));    // 0
+        console.log(Math.round(-10.4));   // -10
+        console.log(Math.round(-1.43));   // -1
+
+        //ceil 向上取比他大的距离最近的整数
+        console.log(Math.ceil(10.4));  // 11
+        console.log(Math.ceil(5.3));   // 6
+        console.log(Math.ceil(-5.3));  // -5
+        console.log(Math.ceil(-0.3));  // -0
+
+        //floor 向下取比他大的距离最近的整数
+        console.log(Math.floor(10.4));  // 10
+        console.log(Math.floor(5.5));   // 5
+        console.log(Math.floor(-5.3));  // -6
+        console.log(Math.floor(0.3));  // 0
+
+        
+        //范围 *表示区间，+表示平移的长度
+        for (let i = 0;i<10; i++) {
+        	console.log(Math.random());  // 0~1的数
+        }
+        for (let i = 0;i<10; i++) {
+        	console.log(Math.random()*10);  // 0~10的数
+        }
+        for (let i = 0;i<10; i++) {
+        	console.log(Math.random()*-20);  // -20~0的数
+        }
+        for (let i = 0;i<10; i++) {
+        	console.log((Math.random()+1)*20);  // 20~40的数
+        }
+        for (let i = 0;i<10; i++) {
+        	console.log(Math.random()*15+5);  // 5~20的数
+        }
+
+
+
+
+       //幂次方
+       console.log(Math.pow(4,3));  // 64
+
+       //平方根
+       console.log(Math.sqrt(4))   // 2
+       
+
+
+
+      //从数组中随机取出3个元素
+      let arr1=['a','b','c','d','e'];
+      //下表随机 0~length-1
+     // Math.floor(Math.random()*arr.length);
+   
+      let result1= randomArr(arr1,3);
+      console.log(result1)
+
+      function randomArr(arr,num){
+      	  let newarr=[];
+      	  //第二种办法：代替第一个for,用while
+      /*	  while(newarr.length<num){
+      	  	   let pos= Math.floor(Math.random()*arr.length); 
+      	  	    //用if代替第一种方法的while
+      	  	    if(!newarr.includes(arr[pos])){
+               	    newarr.push(arr[pos]);
+               }
+      	  	   
+      	  }*/
+
+      	  //第一种方法
+      	  for(let i=0;i<num;i++){
+      	  	   let pos= Math.floor(Math.random()*arr.length);
+      	  	   //去除重复 
+               while(newarr.includes(arr[pos])){
+               	  pos=Math.floor(Math.random()*arr.length); 
+               }
+               newarr.push(arr[pos]);     	  	   
+      	  } 	  	   
+      	  return newarr;	   
+      }
+
+
+
+
+	</script>
+</body>
+</html>
